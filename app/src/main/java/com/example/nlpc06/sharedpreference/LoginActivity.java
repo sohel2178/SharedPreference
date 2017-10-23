@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
     private EditText etName,etPassword;
     private Button btnLogin;
 
@@ -19,6 +19,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         initView();
+
+        // This is a new Comment
     }
 
     private void initView() {
@@ -27,6 +29,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin = (Button) findViewById(R.id.btn_login);
 
         btnLogin.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -35,8 +39,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String pass = etPassword.getText().toString();
 
         if(name.equals("rayhan") && pass.equals("123456")){
-            MyPref myPref = new MyPref(this);
-            myPref.setLogin(true);
+            getMyPref().setLogin(true);
             finish();
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
         }else{
